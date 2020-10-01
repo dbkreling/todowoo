@@ -1,6 +1,7 @@
 # Django stuff:
 *.log
 local_settings.py
+**.py[cod]
 
 # Python stuff:
 *.pyc
