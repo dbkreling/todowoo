@@ -3,7 +3,9 @@
 {% block 'content' %}
     <h1>SignUp</h1>
 
-    <h2>{{ error }}</h2>
+    {% for error in form.non_field_errors %}
+        <h2>{{ error }}</h2>
+    {% endfor %}
 
     <form method="POST">
         {% csrf_token %}
