@@ -5,6 +5,9 @@ from django.contrib.auth import login
 from django.db import IntegrityError
 
 # Create your views here.
+def home(request):
+    return render(request, 'todo/home.html')
+
 def signupuser(request):
     if request.method == 'GET':
         return render(request, 'todo/signupuser.html', {'form': UserCreationForm()})
