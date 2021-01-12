@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import TodoForm
+from .models import Todo
 
 # Create your views here.
 def home(request):
@@ -36,7 +37,8 @@ def loginuser (request):
             return redirect('currenttodos')
 
 def currenttodos(request):
-    return render(request, 'todo/currenttodos.html')
+    todos = Todo.objects.filter(user=request.user, datecompleted__isnull=True)
+    return render(request, 'todo/currenttodos.html', {'todos':todos})
 
 def logoutuser(request):
     if request.method == 'POST':
