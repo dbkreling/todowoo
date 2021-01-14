@@ -2,7 +2,7 @@
 
 {% block 'content' %}
 
-  <h1>CURRENT TODOs</h1>
+  <h1>COMPLETED TODOs</h1>
   <ul>
     {% for todo in todos %}
     <li>
@@ -18,6 +18,7 @@
         {% if todo.memo %}
         - {{ todo.memo }}
         {% endif %}
+        - Completed on {{ todo.datecompleted|date:'M J Y H:i' }}
       </a>
     </li>
 
